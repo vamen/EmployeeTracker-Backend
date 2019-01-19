@@ -28,7 +28,7 @@ def read_task(request):
         for items in data: 
             lst.append(items['fields'])
 
-    return JsonResponse(lst)
+    return JsonResponse(lst,safe=False)
 
 def login(request):
     if request.method == 'POST':
