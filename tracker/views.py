@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .Query import Query
-from django.http import JsonResponse,HttpResponse
+from django.http import JsonResponse,HttpResponse,Http404
 import json
 import uuid
 
@@ -28,6 +28,8 @@ def login(request):
         #code of authentication
         #   
         return JsonResponse(uuid.uuid4())
+    else:
+        Http404("mathod not allowed")
 
 
 def update_gps(request):
