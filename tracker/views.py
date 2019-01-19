@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .Query import Query
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
+import json
+import uuid
+
 # Create your views here.
 
 #view
@@ -17,9 +20,14 @@ def update_task(request):
 def read_task(request):
     pass
 
-
 def login(request):
-    pass
+    if request.method == 'POST':
+        print(request.body)
+        credentials=json.loads(request.body.decode("UTF-8"))
+        #
+        #code of authentication
+        #   
+        return JsonResponse(uuid.uuid4())
 
 
 def update_gps(request):

@@ -25,7 +25,7 @@ SECRET_KEY = 'kv(^i2x$6)^p(#n$1v-e+bp0_*5urnq81&x2$a=7cq4j7g37fm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'tracker'
 ]
 
+    # 'django.middleware.csrf.CsrfViewMiddleware',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -83,6 +83,17 @@ DATABASES = {
         'HOST':'localhost'
     }
 }
+
+
+# DATABASES = {
+#         'default': {
+#         'ENGINE':  'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'trackerdb',
+#         'USER':'abhinvivek',
+#         'PASSWORD':'abhinvivek9695',
+#         'HOST':'spicknspandb.cqgwzrajvop9.us-east-2.rds.amazonaws.com'
+#     }
+# }
 
 
 # Password validation
