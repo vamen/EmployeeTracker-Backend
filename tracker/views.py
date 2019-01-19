@@ -20,15 +20,18 @@ def update_task(request):
 
 
 def read_task(request):
-    auth_token=request.META.get('HTTP_AUTHORIZATION')
+    if request.method=='POST':
+        auth_token=request.META.get('HTTP_AUTHORIZATION')
     # TEMP code
-    data=eval(serializers.serialize("json",Task.objects.all()))
-    lst=[]
-    if len(data)>0:
-        for items in data: 
-            lst.append(items['fields'])
+        data=eval(serializers.serialize("json",Task.objects.all()))
+        lst=[]
+        if len(data)>0:
+            for items in data: 
+                lst.append(items['fields'])
 
-    return JsonResponse(lst,safe=False)
+        return JsonResponse(lst,safe=False)
+    else:
+        return JsonResponse({"message":"mathod not allowed"},status=404)
 
 def login(request):
     if request.method == 'POST':
@@ -39,8 +42,7 @@ def login(request):
         #   
         return JsonResponse(uuid.uuid4(),safe=False)
     else:
-        raise Http404("method not allowed")
-
+        return JsonResponse({"message":"mathod not allowed"},status=404)
 
 def update_gps(request):
     pass    
