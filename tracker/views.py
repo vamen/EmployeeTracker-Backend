@@ -3,6 +3,8 @@ from .Query import Query
 from django.http import JsonResponse,HttpResponse,Http404
 import json
 import uuid
+from .models import Task
+from django.core import serializers
 
 # Create your views here.
 
@@ -18,7 +20,15 @@ def update_task(request):
 
 
 def read_task(request):
-    pass
+    auth_token=request.META.get('HTTP_AUTHORIZATION')
+    # TEMP code
+    data=eval(serializers.serialize("json",Task.objects.all()))
+    lst=[]
+    if len(data)>0:
+        for items in data: 
+            lst.append(items['fields'])
+
+    return JsonResponse(lst)
 
 def login(request):
     if request.method == 'POST':

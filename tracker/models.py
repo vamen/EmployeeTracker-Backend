@@ -16,6 +16,8 @@ class Employee_authentication(models.Model):
     employee=models.ForeignKey(Employee,on_delete=models.CASCADE)
     password=models.CharField(max_length=255)
     salt=models.CharField(max_length=255)
+    token=models.CharField(db_index=True,max_length=255,default="None")
+       
 
     def __str__(self):
         return self.employee.name
@@ -30,7 +32,7 @@ class Task(models.Model):
     status=models.CharField(max_length=255)
 
     def __str__(self):
-        return self.employee.name+" : "+task_heading
+        return self.employee.name+" : "+self.task_heading
 
 class TrackTable(models.Model):
       employee=models.ForeignKey(Employee,on_delete=models.CASCADE)
@@ -38,5 +40,5 @@ class TrackTable(models.Model):
       track_field=JSONField()  
 
       def __str__(self):
-          return self.employee.name + " : "+date.__str__()
+          return self.employee.name + " : "+self.date.__str__()
 
