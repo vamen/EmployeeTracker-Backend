@@ -29,7 +29,7 @@ def login(request):
         #   
         return JsonResponse(uuid.uuid4())
     else:
-        Http404("mathod not allowed")
+        return Http404("mathod not allowed")
 
 
 def update_gps(request):
