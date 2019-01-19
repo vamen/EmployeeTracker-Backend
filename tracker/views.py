@@ -22,14 +22,14 @@ def read_task(request):
 
 def login(request):
     if request.method == 'POST':
-        print(request.body)
-        credentials=json.loads(request.body.decode("UTF-8"))
+        print(request.POST.get('username',None))
+        print(request.POST.get('password',None))
         #
         #code of authentication
         #   
-        return JsonResponse(uuid.uuid4())
+        return JsonResponse(uuid.uuid4(),safe=False)
     else:
-        return Http404("mathod not allowed")
+        raise Http404("method not allowed")
 
 
 def update_gps(request):

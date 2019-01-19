@@ -74,26 +74,26 @@ WSGI_APPLICATION = 'employeetracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#         'default': {
-#         'ENGINE':  'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'et_data',
-#         'USER':'et_admin',
-#         'PASSWORD':'root@123',
-#         'HOST':'localhost'
-#     }
-# }
-
-
 DATABASES = {
         'default': {
         'ENGINE':  'django.db.backends.postgresql_psycopg2',
-        'NAME': 'trackerdb',
-        'USER':'abhinvivek',
-        'PASSWORD':'abhinvivek9695',
-        'HOST':'spicknspandb.cqgwzrajvop9.us-east-2.rds.amazonaws.com'
+        'NAME': 'et_data',
+        'USER':'et_admin',
+        'PASSWORD':'root@123',
+        'HOST':'localhost'
     }
 }
+
+
+# DATABASES = {
+#         'default': {
+#         'ENGINE':  'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'trackerdb',
+#         'USER':'abhinvivek',
+#         'PASSWORD':'abhinvivek9695',
+#         'HOST':'spicknspandb.cqgwzrajvop9.us-east-2.rds.amazonaws.com'
+#     }
+# }
 
 
 # Password validation
