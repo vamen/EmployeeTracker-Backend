@@ -30,14 +30,17 @@ class Task(models.Model):
     lat=models.CharField(max_length=25)
     lang=models.CharField(max_length=25)
     status=models.CharField(max_length=255)
-
+    date=models.DateField()
+    
     def __str__(self):
         return self.employee.name+" : "+self.task_heading
 
 class TrackTable(models.Model):
       employee=models.ForeignKey(Employee,on_delete=models.CASCADE)
-      date=models.DateField()
-      track_field=JSONField()  
+      date=models.DateTimeField()
+      lat=models.CharField(max_length=10)
+      lang=models.CharField(max_length=10)
+      
 
       def __str__(self):
           return self.employee.name + " : "+self.date.__str__()
